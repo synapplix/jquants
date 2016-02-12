@@ -171,6 +171,26 @@ public class Money extends Quantity<Money> {
   }
   
   /**
+   * Divides this money by that Area and returns a new PricePerArea
+   *
+   * @param that Area
+   * @return Money
+   */
+  public PricePerArea div(Area that) {
+    return new PricePerArea(this, that);
+  }
+  
+  /**
+   * Divides this money by that number of items and returns a new PricePerItem
+   *
+   * @param that Each
+   * @return Money
+   */
+  public PricePerItem div(Dimensionless number) {
+    return new PricePerItem(this.div(number.toEach()));
+  }
+  
+  /**
    * Integer divides this money by that BigDecimal and returns the remainder
    * @param that BigDecimal
    * @return Money

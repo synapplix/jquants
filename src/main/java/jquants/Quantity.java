@@ -172,8 +172,8 @@ public abstract class Quantity<A extends Quantity<A>> {
    * @param unit UnitOfMeasure[A]
    * @return Quantity
    */
-  public Quantity<A> in(UnitOfMeasure<A> unit) {
-    return (unit == this.valueUnit) ? this : unit.apply(this.to(unit));
+  public A in(UnitOfMeasure<A> unit) {
+    return (unit == this.valueUnit) ? (A) this : unit.apply(this.to(unit));
   }
 
   @Override

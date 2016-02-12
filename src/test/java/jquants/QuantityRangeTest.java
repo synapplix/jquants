@@ -184,8 +184,8 @@ public class QuantityRangeTest {
   @Test
   public void shouldFoldRightAlikeValueAndAppliesAnOperationOnEachSubRange() {
     QuantityRange<Length> r = new QuantityRange(Meters(0), Meters(5));
-    Length foldLeft = r.foldRight(Meters(1), Meters(0),(x, z) -> z.plus(x.upper)); 
-    assertThat(foldLeft,  is(Meters(15)));
+    Length foldRight = r.foldRight(Meters(1), Meters(0),(x, z) -> z.plus(x.upper)); 
+    assertThat(foldRight,  is(Meters(15)));
   }
 //
 //  it should "foldRight a Double and applies an operation on each sub range" in {
@@ -197,8 +197,8 @@ public class QuantityRangeTest {
   @Test
   public void shouldFoldRightADoubleValueAndAppliesAnOperationOnEachSubRange() {
     QuantityRange<Length> r = new QuantityRange(Meters(0), Meters(5));
-    Length foldLeft = r.foldRight(5.0, Meters(0),(x, z) -> z.plus(x.upper)); 
-    assertThat(foldLeft,  is(Meters(15)));
+    Length foldRight = r.foldRight(5.0, Meters(0),(x, z) -> z.plus(x.upper)); 
+    assertThat(foldRight,  is(Meters(15)));
   }
 //
 //  it should "inc and return a QualityRange with lower and upper bounds incremented by the range value" in {

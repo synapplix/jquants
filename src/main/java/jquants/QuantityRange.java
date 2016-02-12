@@ -149,9 +149,8 @@ public class QuantityRange<A extends Quantity<A>> {
    * @return
    */
   // def foreach[U](size: A)(op: QuantityRange[A] ⇒ U) = /(size).foreach(op)
-  // myList.forEach((String element) -> System.out.println(element));
-  public void foreach(A size, Function c) {
-    this.divide(size).forEach(n -> c.apply(n));
+  public void foreach(A size, Consumer<? super QuantityRange> op) {
+    this.divide(size).forEach(op);
   }
 
   /**
