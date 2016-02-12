@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Jquants by synapplix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Jquants</h1>
+      <h2 class="project-tagline">The Java API for Mixed Calculations of Scientific Units and Sums of Money</h2>
+      <a href="https://github.com/synapplix/jquants" class="btn">View on GitHub</a>
+      <a href="https://github.com/synapplix/jquants/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/synapplix/jquants/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="jquants-" class="anchor" href="#jquants-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Jquants </h1>
+
+<h3>
+<a id="the-java-api-for-mixed-calculations-of-scientific-units-and-sums-of-money" class="anchor" href="#the-java-api-for-mixed-calculations-of-scientific-units-and-sums-of-money" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Java API for Mixed Calculations of Scientific Units and Sums of Money</h3>
+
+<p>Jquants addresses the insufficient support for Mixed Calculations of Scientific Units and Sums of Money within Java. The library has been created by translating the Scala library <a href="https://github.com/garyKeorkunian/squants/">Squants</a> by GaryKeorkun into Java. The outcome is capable of reducing both, the complexity and susceptibility to errors for end-users when dealing with such calculations.</p>
+
+<h4>
+<a id="jquants-provides" class="anchor" href="#jquants-provides" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Jquants provides</strong>:</h4>
+
+<ul>
+<li><strong>Type safety</strong></li>
+<li>Close to full <strong>test coverage</strong> (93,3% - last updated 26.01.2016 and measured with the tool <a href="http://eclemma.com/">EclEmma</a>)</li>
+<li>
+<strong>All vital quantities for business applications</strong>  (<em>see Implementation</em>)</li>
+<li>About the <strong>same performance as its model Squants</strong> (measured with a microbenchmark test using the <a href="http://openjdk.java.net/projects/code-tools/jmh/">Java Microbenchmark Harness tool</a>)</li>
+</ul>
+
+<p>The library has emerged within the work on my bachelor thesis conducted at the Technical University Munich (TUM). The thesis has addressed the creation of a solution for "Mixed Calculations of Scientific Units and Sums of Money in Java" cooperating with one of the solution-seeking users, the company <a href="http://www.synapplix.de/">Synapplix</a>. 
+After identifying the translation of <a href="https://github.com/garyKeorkunian/squants/">Squants</a>, as the most viable option, the Java library Jquants has been implemented thereof. 
+For further information on the analysis of currently existing solutions, Jquants' implementation or the performance test I refer to the latest version of my <a href="www.LINK.de">bachelor thesis</a> and its <a href="LINK">presentation</a> .</p>
+
+<h3>
+<a id="current-version" class="anchor" href="#current-version" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Current Version</h3>
+
+<p>Current Version: V 1.0</p>
+
+<p>Model Squants version: <a href="https://github.com/garyKeorkunian/squants/wiki/Release-History#061-snapshot">0.6.1</a></p>
+
+<h3>
+<a id="implementation" class="anchor" href="#implementation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementation</h3>
+
+<p>All within the project initially specified packages have been translated and tested with their respective unit-tests. 
+All quantity values are implemented as type double; Solely Money values are held in BigDecimal.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Package</strong></th>
+<th align="left"><strong>Quantities</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>Market</strong></td>
+<td align="left">Money.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Price.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">PricePerArea</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">PricePerItem</td>
+</tr>
+<tr>
+<td align="left"><strong>Mass</strong></td>
+<td align="left"><del>AreaDensity.scala</del></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><del>ChemicalAmount.scala</del></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><del>Density.scala</del></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Mass.scala</td>
+</tr>
+<tr>
+<td align="left"><strong>Motion</strong></td>
+<td align="left">Acceleration.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">AngularVelocity.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Force.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Jerk.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">MassFlow.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Momentum.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><del>Pressure.scala</del></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"><del>PressureChange.scala</del></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Velocity.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">VolumeFlow.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Yank.scala</td>
+</tr>
+<tr>
+<td align="left"><strong>Space</strong></td>
+<td align="left">Angle.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Area.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Length.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">SolidAngle.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Volume.scala</td>
+</tr>
+<tr>
+<td align="left"><strong>Time</strong></td>
+<td align="left">Frequency.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Time.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">TimeDerivative &amp; Integral</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">TimeSquared.scala</td>
+</tr>
+<tr>
+<td align="left"><strong>Energy</strong></td>
+<td align="left">Energy.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">EnergyDensity.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">Power.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">PowerRamp.scala</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">SpecificEnergy.scala</td>
+</tr>
+</tbody>
+</table>
+
+<p>(<strong><del>crossed out</del></strong> quantities were not included in the initially specified set and are thus seen as optional for implementation.)   </p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>When performing operations with different quantities developers often use the type double, which provides no information about the quantity, unit or conversions, ultimately leading to misunderstandings and incorrect operations. Jquants tackles this source of error by ensuring dimensional type safety and dimensional correct type conversions.</p>
+
+<p>Flawed double example: </p>
+
+<p>This examples depicts the mistakes one can easily make when using the type double for quantities:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">double</span> lengthINcm <span class="pl-k">=</span> <span class="pl-c1">1</span>;        <span class="pl-c">// represents 1 cm</span>
+<span class="pl-k">double</span> lengthINm <span class="pl-k">=</span> <span class="pl-c1">1</span>;         <span class="pl-c">// represents 1 m</span>
+<span class="pl-k">double</span> time <span class="pl-k">=</span> <span class="pl-c1">10</span>;             <span class="pl-c">// represents 10 s</span>
+<span class="pl-k">double</span> sum <span class="pl-k">=</span> lengthINcm <span class="pl-k">+</span> lengthINm <span class="pl-k">+</span> time;     <span class="pl-c">// falsely returns 12</span></pre></div>
+
+<p>Due to the use of double one is able to add quantities of the same dimension with different units (1 cm and 1 m) without any conversion.
+Furthermore, the user is able to add quantities of different dimensions (length and time), thus resulting in a useless value.</p>
+
+<h4>
+<a id="dimensional-type-safety" class="anchor" href="#dimensional-type-safety" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dimensional Type safety</h4>
+
+<p><em>One may only compare, add or subtract quantities of the same dimensions.</em></p>
+
+<p>Therefore Jquants checks operations at compile time and automatically applies scale and type conversions at run-time: </p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> lengthA <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);         <span class="pl-c">// Length: 1 m</span>
+<span class="pl-smi">Length</span> lengthB <span class="pl-k">=</span> Centimeters(<span class="pl-c1">100</span>);    <span class="pl-c">// Length: 1 cm</span>
+<span class="pl-smi">Length</span> sum <span class="pl-k">=</span> lengthA<span class="pl-k">.</span>plus(lengthB);   <span class="pl-c">// returns Meters(2)</span></pre></div>
+
+<p>This works since meters and centimeters are both units of the dimension Length.</p>
+
+<p>However, if one tries to add two quantities of different dimensions the code does not compile and thus helps prevent mistakes that were easily made with the double example above.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> length <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);        <span class="pl-c">// Length 1 m</span>
+<span class="pl-smi">Time</span> time <span class="pl-k">=</span> Seconds(<span class="pl-c1">10.0</span>);          <span class="pl-c">// Time: 10 s</span>
+<span class="pl-smi">Length</span> sum <span class="pl-k">=</span> length<span class="pl-k">.</span>plus(time);     <span class="pl-c">// Invalid operation - does not compile</span></pre></div>
+
+<h4>
+<a id="dimensionally-correct-type-conversions" class="anchor" href="#dimensionally-correct-type-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dimensionally Correct Type Conversions</h4>
+
+<p><em>One may multiply and divide quantities of different dimensions.</em></p>
+
+<p>Dimensionally correct type conversions are a key feature of Jquants. By having defined all valid operations and their resulting dimensions one receives the resulting dimension when multiplying or dividing two quantities of different dimensions:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Time</span> time <span class="pl-k">=</span> Hours(<span class="pl-c1">1.0</span>);               <span class="pl-c">// Time: 1 h</span>
+<span class="pl-smi">Length</span> distance <span class="pl-k">=</span> Kilometers(<span class="pl-c1">120.0</span>);  <span class="pl-c">// Length: 120 km</span>
+<span class="pl-smi">Velocity</span> speed <span class="pl-k">=</span> distance<span class="pl-k">.</span>div(time);  <span class="pl-c">// returns KilometersPerHour(120)</span>
+
+<span class="pl-smi">Time</span> t1 <span class="pl-k">=</span> Seconds(<span class="pl-c1">30.0</span>);    <span class="pl-c">// Time: 30 s</span>
+<span class="pl-smi">Time</span> t2 <span class="pl-k">=</span> Minutes(<span class="pl-c1">1.0</span>);     <span class="pl-c">// Time: 1 m</span>
+<span class="pl-k">double</span> ratio <span class="pl-k">=</span> t1<span class="pl-k">.</span>div(t2);  <span class="pl-c">// returns double: 0.5</span></pre></div>
+
+<h4>
+<a id="unit-conversions" class="anchor" href="#unit-conversions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unit Conversions</h4>
+
+<p>Quantity values are based in the units you create them:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> lengthA <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);       <span class="pl-c">// Length: 1 m</span>
+<span class="pl-smi">Length</span> lengthB <span class="pl-k">=</span> Centimeters(<span class="pl-c1">1.0</span>);  <span class="pl-c">// Length: 1 cm</span></pre></div>
+
+<p>While units are implicitly converted within calculations, one may also explicitly convert quantities into different units:</p>
+
+<p>Convert quantity into different unit using <code>in</code>.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> lengthA <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);               <span class="pl-c">// Length: 1 m</span>
+<span class="pl-smi">Length</span> lengthB <span class="pl-k">=</span> lengthA<span class="pl-k">.</span>in(<span class="pl-smi">Centimeters</span>);   <span class="pl-c">// returns Centimeters(100)</span></pre></div>
+
+<p>Extract a double value converted into a specific unit using <code>to</code>.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> lengthA <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);               <span class="pl-c">// Length: 1 m</span>
+<span class="pl-k">double</span> lengthB <span class="pl-k">=</span> lengthA<span class="pl-k">.</span>to(<span class="pl-smi">Centimeters</span>);   <span class="pl-c">// returns Double: 100</span></pre></div>
+
+<p>Most types also include convenient aliases for the <code>to</code> method.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> lengthA <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);               <span class="pl-c">// Length: 1 m</span>
+<span class="pl-k">double</span> lengthB <span class="pl-k">=</span> lengthA<span class="pl-k">.</span>toCentimeters();   <span class="pl-c">// returns Double: 100</span>
+<span class="pl-k">double</span> lengthC <span class="pl-k">=</span> lengthA<span class="pl-k">.</span>toDecimeters();    <span class="pl-c">// returns Double: 10</span>
+<span class="pl-k">double</span> lengthD <span class="pl-k">=</span> lengthA<span class="pl-k">.</span>toFeet();          <span class="pl-c">// returns Double: 3.2808333333464565 </span></pre></div>
+
+<p>Represent quantities as a String with <code>toString</code>:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> length <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);    <span class="pl-c">// Length: 1 m</span>
+<span class="pl-smi">String</span> s <span class="pl-k">=</span> length<span class="pl-k">.</span>toString();   <span class="pl-c">// returns String: "1 m"</span></pre></div>
+
+<p>Represent quantities as a String converted into a different unit using <code>toString(&lt;UnitOfMeasure&gt;)</code>:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> length <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);              <span class="pl-c">// Length: 1 m</span>
+<span class="pl-smi">String</span> s <span class="pl-k">=</span> length<span class="pl-k">.</span>toString(<span class="pl-smi">Centimeters</span>);  <span class="pl-c">// returns String: "100 cm"</span></pre></div>
+
+<p>Represent quantities in tuples using <code>toTuple()</code>.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> length <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);                    <span class="pl-c">// Length: 1 m</span>
+<span class="pl-k">Pair&lt;<span class="pl-smi">Double</span>, <span class="pl-smi">String</span>&gt;</span> tuple <span class="pl-k">=</span> length<span class="pl-k">.</span>toTuple();  <span class="pl-c">// returns Tuple: [1.0,m]</span></pre></div>
+
+<h4>
+<a id="mapping-over-quantity-values" class="anchor" href="#mapping-over-quantity-values" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Mapping over Quantity values</h4>
+
+<p>Apply a <code>Double =&gt; Double</code> function to alter the value of a quantity while preserving its type and unit.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> length <span class="pl-k">=</span> Meters(<span class="pl-c1">1.0</span>);      <span class="pl-c">// Length: 1 m</span>
+<span class="pl-smi">Length</span> mappedLength <span class="pl-k">=</span> length<span class="pl-k">.</span>map(n <span class="pl-k">-</span><span class="pl-k">&gt;</span> n<span class="pl-k">.</span>multiply(<span class="pl-c1">2</span>)<span class="pl-k">.</span>plus(Meters(<span class="pl-c1">1</span>)));   <span class="pl-c">// returns Meters: 3 m</span></pre></div>
+
+<h4>
+<a id="approximations" class="anchor" href="#approximations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Approximations</h4>
+
+<p>Approximate whether values lay within a specified tolerance from a quantity using <code>approx</code>.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Length</span> lengthApprox <span class="pl-k">=</span> Meters(<span class="pl-c1">1.998</span>);
+<span class="pl-k">boolean</span> result <span class="pl-k">=</span> lengthApprox<span class="pl-k">.</span>approx(Meters(<span class="pl-c1">2</span>), Meters(<span class="pl-c1">0.003</span>));     <span class="pl-c">// returns true</span></pre></div>
+
+<h4>
+<a id="market-package" class="anchor" href="#market-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Market Package</h4>
+
+<p>The market package comprises different means of dealing with money. The primary type, Money, is a Dimensional Quantity, and its Units of Measure are Currencies.</p>
+
+<h5>
+<a id="money" class="anchor" href="#money" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Money</h5>
+
+<p>A Quantity of purchasing power measured in Currency units.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Money</span> tenBucks <span class="pl-k">=</span> <span class="pl-c1">USD</span>(<span class="pl-c1">10.0</span>);       <span class="pl-c">// Money: 10 USD</span>
+<span class="pl-smi">Money</span> someYen <span class="pl-k">=</span> <span class="pl-c1">JPY</span>(<span class="pl-c1">1200</span>);        <span class="pl-c">// Money: 1200 JPY</span>
+<span class="pl-smi">Money</span> goldStash <span class="pl-k">=</span> <span class="pl-c1">XAU</span>(<span class="pl-c1">50</span>);        <span class="pl-c">// Money: 50 XAU</span>
+<span class="pl-smi">Money</span> digitalCache <span class="pl-k">=</span> <span class="pl-c1">BTC</span>(<span class="pl-c1">50</span>);     <span class="pl-c">// Money: 50 BTC</span></pre></div>
+
+<h5>
+<a id="price" class="anchor" href="#price" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Price</h5>
+
+<p>A Ratio between Money and another Quantity. A Price value is typed on a Quantity and can be denominated in any defined Currency.</p>
+
+<p><em>Price = Money / Quantity</em></p>
+
+<p>Jquants further offers the types <em>PricePerArea</em> and <em>PricePerItem</em> as being often required in business applications:</p>
+
+<ul>
+<li>PricePerArea </li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Area</span> area <span class="pl-k">=</span> SquareMeters(<span class="pl-c1">100.0</span>);      <span class="pl-c">// Area: 100 m²</span>
+<span class="pl-smi">Money</span> price <span class="pl-k">=</span> <span class="pl-c1">EUR</span>(<span class="pl-c1">1000.0</span>);            <span class="pl-c">// Money: 1000 €</span>
+<span class="pl-smi">PricePerArea</span> rent <span class="pl-k">=</span> price<span class="pl-k">.</span>div(area);  <span class="pl-c">// returns PricePerArea: 1000.00 EUR/100.0 m²</span></pre></div>
+
+<ul>
+<li>PricePerItem</li>
+</ul>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Dimensionless</span> items <span class="pl-k">=</span> Each(<span class="pl-c1">10.0</span>)      <span class="pl-c">// Dimensionless: 10 ea</span>
+<span class="pl-smi">Money</span> price <span class="pl-k">=</span> <span class="pl-c1">USD</span>(<span class="pl-c1">100.0</span>);             <span class="pl-c">// Money: 1000 $</span>
+<span class="pl-smi">PricePerItem</span> pricePerProduct <span class="pl-k">=</span> price<span class="pl-k">.</span>div(items); <span class="pl-c">// returns PricePerItem: 10 $ / 1.0 ea</span></pre></div>
+
+<h4>
+<a id="quantityranges" class="anchor" href="#quantityranges" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>QuantityRanges</h4>
+
+<p>QuantityRanges are used to represent a range of Quantity values between an upper an lower bound.</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Time</span> time1 <span class="pl-k">=</span> Seconds(<span class="pl-c1">1.0</span>);     <span class="pl-c">// Time: 1 s </span>
+<span class="pl-smi">Time</span> time2 <span class="pl-k">=</span> Seconds(<span class="pl-c1">4.0</span>);     <span class="pl-c">// Time: 4 s </span>
+<span class="pl-k">QuantityRange&lt;<span class="pl-smi">Time</span>&gt;</span> range <span class="pl-k">=</span> time1<span class="pl-k">.</span>to(time2);  <span class="pl-c">// returns Range: 1.0 s to 4.0 s</span></pre></div>
+
+<p>These QuantityRanges can be used or altered by a set of methods (<code>contains, dec, decFrom, decFromIncTo, decTo, divide, foldLeft, foldRight, foreach, inc, incFrom, incFromDecTo,
+includes, includes, incTo, map, partiallyContains, partiallyIncludes, times, toList, toQuantity, toSeq, toString</code>).</p>
+
+<p>Apply methods to ranges by using <code>foreach</code>, <code>map</code>, <code>foldLeft</code>, or <code>foldRight</code>:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">QuantityRange&lt;<span class="pl-smi">Length</span>&gt;</span> range <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">QuantityRange</span>(Meters(<span class="pl-c1">0</span>), Meters(<span class="pl-c1">5</span>));        <span class="pl-c">// QuantityRange: 1.0 s to 4.0 s</span>
+range<span class="pl-k">.</span>foreach(Meters(<span class="pl-c1">2.5</span>), r <span class="pl-k">-</span><span class="pl-k">&gt;</span> <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>print(<span class="pl-s"><span class="pl-pds">"</span>(<span class="pl-pds">"</span></span><span class="pl-k">+</span>r<span class="pl-k">.</span>lower<span class="pl-k">.</span>in(<span class="pl-smi">Centimeters</span>)<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span><span class="pl-k">+</span>r<span class="pl-k">.</span>upper<span class="pl-k">.</span>in(<span class="pl-smi">Centimeters</span>)<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">"</span>)<span class="pl-pds">"</span></span>)); <span class="pl-c">//returns (0.0 cm, 250.0 cm)(250.0 cm,500.0 cm)</span>
+<span class="pl-k">ArrayList&lt;?&gt;</span> mapped <span class="pl-k">=</span> range<span class="pl-k">.</span>map(<span class="pl-c1">2</span>, x <span class="pl-k">-</span><span class="pl-k">&gt;</span> x);                       <span class="pl-c">// returns [0.0 m to 2.5 m, 2.5 m to 5.0 m]</span>
+<span class="pl-smi">Length</span> foldLeft <span class="pl-k">=</span> range<span class="pl-k">.</span>foldLeft(Meters(<span class="pl-c1">1</span>), Meters(<span class="pl-c1">0</span>),(z, x) <span class="pl-k">-</span><span class="pl-k">&gt;</span> z<span class="pl-k">.</span>plus(x<span class="pl-k">.</span>upper));   <span class="pl-c">// returns Length: 15.0 m</span></pre></div>
+
+<h3>
+<a id="possible-extensions" class="anchor" href="#possible-extensions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Possible Extensions</h3>
+
+<p>The following Squants-packages embody possible extensions: </p>
+
+<ul>
+<li>Electro</li>
+<li>Photo</li>
+<li>Radio</li>
+<li>Storage</li>
+</ul>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h3>
+
+<h2></h2>
+
+<h2></h2>
+
+<h3>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h3>
+
+<p>• Mathias Bräu (<a href="https://github.com/mbraeu" class="user-mention">@mbraeu</a>)
+  • Florian Pahl (<a href="https://github.com/johnpaul2" class="user-mention">@johnpaul2</a>)</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/synapplix/jquants">Jquants</a> is maintained by <a href="https://github.com/synapplix">synapplix</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-73730847-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
