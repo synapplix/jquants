@@ -12,6 +12,11 @@ import jquants.UnitOfMeasure;
 import jquants.mass.Mass.MassUnit;
 import jquants.space.Volume;
 
+/**
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class ChemicalAmount extends BaseQuantity<ChemicalAmount> {
 
 	private ChemicalAmount(double value, ChemicalAmountUnit valueUnit) {

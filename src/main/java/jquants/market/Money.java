@@ -16,6 +16,31 @@ import jquants.Quantity;
 import jquants.UnitOfMeasure;
 import jquants.space.Area;
 
+
+/**
+ * Represents a quantity of Money.
+ *
+ * Money is similar to other quantities in that it represents an amount of something - purchasing power - and
+ * it is measured in units - currencies.
+ *
+ * The main difference is that the conversion rate between currencies can not be certain at compile.
+ * (In fact it may not always be so easy to know them at runtime as well.)
+ *
+ * To address this diversion from the way most other quantities work, Money overrides several of the standard methods
+ * and operators to ensure one of two rules is followed:
+ *
+ *  1) this and that are in the same currency, or
+ *  2) there is in an implicit MoneyContext in scope (which may or may not have the applicable exchange rate)
+ *
+ * Methods and operations applied to moneys of different currencies may throw a NoSuchExchangeRateException if the
+ * implicit MoneyContext does not contain the Rate(s) necessary to perform the conversion.
+ *
+ * The defaultMoneyContext includes USD as the default currency, a list of ~20 other currencies and NO exchange rates
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class Money extends Quantity<Money> {
 
   public BigDecimal amount;
@@ -37,6 +62,11 @@ public class Money extends Quantity<Money> {
     this.currency = currency;
   }
 
+  /**
+   * 
+   * @param amount the amount of money
+   * @param currency the currency in which the money is denominated
+   */
   private Money(BigDecimal amount, Currency currency) {
     this.amount = amount;
     this.currency = currency;
@@ -86,7 +116,7 @@ public class Money extends Quantity<Money> {
   /**
    * Returns a string formatted with the value and currency code
    *
-   * eg USD(100) => "100.00 USD"
+   * eg USD(100) yields in: "100.00 USD"
    *
    * @return String
    */
@@ -102,7 +132,7 @@ public class Money extends Quantity<Money> {
   /**
    * Returns a string formatted with the value and currency symbol
    *
-   * eg USD(100) => "\$100.00"
+   * eg USD(100) yields in: "\$100.00"
    *
    * @return String
    */
@@ -115,10 +145,9 @@ public class Money extends Quantity<Money> {
   }
 
   /**
-   * Adds this Money to that Money converted to this.currency via context
-   *
+   * Adds this Money to that Money converted to this.currency via context using the current MoneyContext, which is required for cross currency operations
+   * 
    * @param that Money
-   * @param context MoneyContext required for cross currency operations
    * @return Money
    * @throws NoSuchExchangeRateException when no exchange rate is available
    */
@@ -128,10 +157,9 @@ public class Money extends Quantity<Money> {
   }
 
   /**
-   * Subtracts that Money from this Money converted to this.currency via context
+   * Subtracts that Money from this Money converted to this.currency via context using the current MoneyContext, which is required for cross currency operations
    *
    * @param that Money
-   * @param context MoneyContext required for cross currency operations
    * @return Money
    * @throws NoSuchExchangeRateException when no exchange rate is available
    */
@@ -185,7 +213,7 @@ public class Money extends Quantity<Money> {
   /**
    * Divides this money by that number of items and returns a new PricePerItem
    *
-   * @param that Each
+   * @param number Each
    * @return Money
    */
   public PricePerItem div(Dimensionless number) {
@@ -219,10 +247,9 @@ public class Money extends Quantity<Money> {
   }
 
   /**
-   * Divides this money by that money and returns the ratio between the converted amounts
+   * Divides this money by that money and returns the ratio between the converted amounts using the current MoneyContext, which is required for cross currency operations
    *
    * @param that Money
-   * @param context MoneyContext
    * @return
    * @throws NoSuchExchangeRateException 
    */
@@ -240,9 +267,8 @@ public class Money extends Quantity<Money> {
 //  def /[A <: Quantity[A]](that: A): Price[A] = Price(this, that)
 
   /**
-   * Supports max operation on Moneys of dislike Currency
+   * Supports max operation on Moneys of dislike Currency using the current MoneyContext, which is required for cross currency operations
    * @param that Money
-   * @param moneyContext MoneyContext
    * @return
    */
   public Money max(Money that) {
@@ -261,9 +287,8 @@ public class Money extends Quantity<Money> {
 //  }
 
   /**
-   * Supports max operation on Moneys of dislike Currency
+   * Supports min operation on Moneys of dislike Currency using the current MoneyContext, which is required for cross currency operations
    * @param that Money
-   * @param moneyContext MoneyContext
    * @return
    */
   public Money min(Money that) {
@@ -318,10 +343,9 @@ public class Money extends Quantity<Money> {
   }
 
   /**
-   * Convert this Money to a Double representing the currency unit
+   * Convert this Money to a Double representing the currency unit using the current MoneyContext, which is required for cross currency operations
    *
    * @param unit Currency
-   * @param context MoneyContext required for cross currency operations
    * @return Double
    * @throws NoSuchExchangeRateException when no exchange rate is available
    */
@@ -331,10 +355,9 @@ public class Money extends Quantity<Money> {
   }
   
   /**
-   * Reboxes this Money value in a Money in the given Currency
+   * Reboxes this Money value in a Money in the given Currency using the current MoneyContext, which is required for cross currency operations
    *
    * @param unit Currency
-   * @param context MoneyContext required for cross currency operations
    * @return Money
    * @throws NoSuchExchangeRateException when no exchange rate is available
    */

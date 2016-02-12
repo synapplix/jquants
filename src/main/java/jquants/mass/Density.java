@@ -13,7 +13,11 @@ import jquants.UnitOfMeasure;
 import jquants.space.Volume;
 import jquants.mass.Mass;
 
-
+/**
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class Density extends Quantity<Density> {
 	
 	public Density(double value, DensityUnit valueUnit) {

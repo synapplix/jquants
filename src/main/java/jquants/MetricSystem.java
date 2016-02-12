@@ -1,5 +1,12 @@
 package jquants;
 
+/**
+ * Singleton defining Metric System multipliers
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class MetricSystem {
   public static final double Deci = .1;
   public static final double Centi = .01;

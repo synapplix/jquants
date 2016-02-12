@@ -1,18 +1,24 @@
 package jquants.time;
 
 import static com.googlecode.totallylazy.Sequences.sequence;
+import static jquants.Dimensionless.Each;
+import static jquants.time.Time.Seconds;
 
 import com.googlecode.totallylazy.Option;
-import com.googlecode.totallylazy.time.Seconds;
 
-import jquants.Dimensionless;
-import jquants.Quantity;
 import jquants.Dimension;
-import jquants.UnitOfMeasure;
-import jquants.Dimensionless.DimensionlessUnit;
+import jquants.Dimensionless;
 import jquants.MetricSystem;
-import static jquants.time.Time.*;
-import static jquants.Dimensionless.*;
+import jquants.Quantity;
+import jquants.UnitOfMeasure;
+
+/**
+ * Represents a quantity of frequency, which is the number cycles (count) over time
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class Frequency extends Quantity<Frequency> implements TimeDerivative<Dimensionless> {
 
 	private Frequency(double value, FrequencyUnit valueUnit) {

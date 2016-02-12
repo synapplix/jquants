@@ -1,5 +1,15 @@
 package jquants;
 
+/**
+ * A Unit of Measure is used to define the scale of a quantity measurement
+ *
+ * Each Quantity Dimension must include at least one Unit of Measure, and one and only Primary.
+ * Other units of measure are defined with conversionFactors relative to the Primary.
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public abstract class UnitOfMeasure<T extends Quantity<T>> {
   public String symbol;
   public double multiplier = 1d;
@@ -13,7 +23,7 @@ public abstract class UnitOfMeasure<T extends Quantity<T>> {
   public UnitOfMeasure(String symbol) {
     this(symbol, 1d);
   }
-
+  
   public UnitOfMeasure(String symbol, double multiplier) {
     this(symbol, multiplier, false, false, false);
   }

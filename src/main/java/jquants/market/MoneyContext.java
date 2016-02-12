@@ -29,11 +29,9 @@ import static com.googlecode.totallylazy.Sequences.sequence;
  * Will act as an implicit parameter to cross currency operations to allow for
  * easy conversions
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param defaultCurrency Currency used when none is supplied to the Money factory
- * @param rates Collection of Exchange Rates used for currency conversions
  */
 public class MoneyContext {
 
@@ -71,10 +69,23 @@ public class MoneyContext {
     return MoneyContext.get() != null ? MoneyContext.get() : Market.defaultMoneyContext;
   }
   
+  /**
+   * 
+   * @param defaultCurrency Currency used when none is supplied to the Money factory
+   * @param currencies Set of Currencies
+   * @param rates Collection of Exchange Rates used for currency conversions
+   */
   public MoneyContext(Currency defaultCurrency, Set<Currency> currencies, List<CurrencyExchangeRate> rates) {
     this(defaultCurrency, currencies, rates, true);
   }
 
+  /**
+   * 
+   * @param defaultCurrency Currency used when none is supplied to the Money factory
+   * @param currencies Set of Currencies
+   * @param rates Collection of Exchange Rates used for currency conversions
+   * @param allowIndirectConversions boolean
+   */
   public MoneyContext(Currency defaultCurrency, Set<Currency> currencies, List<CurrencyExchangeRate> rates, boolean allowIndirectConversions) {
     this.defaultCurrency = defaultCurrency;
     this.currencies = currencies;

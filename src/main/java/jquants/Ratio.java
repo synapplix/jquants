@@ -1,13 +1,13 @@
 package jquants;
 
 /**
- * Defines an interface and partial implementation for types that represent a ratio between any two quantities
+ * Defines a class for types that represent a ratio between any two quantities
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @tparam A Quantity A
- * @tparam B Quantity B
+ * @param <A> Quantity of type A
+ * @param <B> Quantity of type B
  */
 public class Ratio<A extends Quantity<A>, B extends Quantity<B>> { 
   public A base;

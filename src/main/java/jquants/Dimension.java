@@ -20,6 +20,14 @@ import com.googlecode.totallylazy.Sequence;
 import com.googlecode.totallylazy.predicates.LogicalPredicate;
 import com.googlecode.totallylazy.regex.Regex;
 
+/**
+ * Represents a Dimension or Quantity Type
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ * 
+ * @param A Quantity Type
+ */
 @SuppressWarnings("rawtypes")
 public class Dimension<A extends Quantity<A>> {
   public String name;

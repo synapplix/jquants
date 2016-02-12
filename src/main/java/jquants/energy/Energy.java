@@ -45,6 +45,13 @@ import static jquants.space.Area.*;
 import static jquants.space.Volume.*;
 import static jquants.time.Time.*;
 
+/**
+ * Represents a quantity of energy
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class Energy extends Quantity<Energy> implements TimeIntegral<Power>, SecondTimeIntegral<PowerRamp>{
   private Energy(double value, EnergyUnit valueUnit) {
     this.value = value;

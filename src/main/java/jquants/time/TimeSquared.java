@@ -1,18 +1,32 @@
 package jquants.time;
 
-import java.util.concurrent.TimeUnit;
+import static jquants.time.Time.Hours;
+import static jquants.time.Time.Minutes;
+import static jquants.time.Time.Seconds;
 
-import jquants.MetricSystem;
 import jquants.Quantity;
 import jquants.UnitOfMeasure;
-import jquants.motion.Acceleration;
-import jquants.motion.Velocity;
-import jquants.space.Length;
-import jquants.space.Length.LengthUnit;
 
-import static jquants.time.Time.TimeUnit.*;
-import static jquants.time.Time.*;
-
+/**
+ * Represents an intermediate value used in 2nd derivative time calculations
+ *
+ * Create objects by calling the Time.squared method.
+ *
+ * q1 / TimeSquared(t1, t2) == q1 / t1 / t2 == q1 / (t1 * t2)
+ *
+ * q2 * TimeSquared(t1, t2) == q2 * t1 * t2
+ *
+ * q1 / t1.squared == q1 / t1 / t1
+ *
+ * q2 * t1.squared == q2 * t1 * t1
+ *
+ * where q1 is a second degree time integral
+ * and q2 is a second degree time derivative
+ *
+ *
+ * @author Mathias Braeu
+ * @since 1.0
+ */
 public class TimeSquared extends Quantity<TimeSquared> {
   
   public Time time1; //TODO: changed visibility to Package for the SecondTimeIntegral

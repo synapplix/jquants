@@ -6,20 +6,22 @@ import static jquants.time.Time.Hours;
 
 import com.googlecode.totallylazy.Option;
 
-import jquants.BaseQuantity;
 import jquants.BaseQuantityUnit;
+import jquants.Dimension;
 import jquants.MetricSystem;
 import jquants.Quantity;
-import jquants.Dimension;
-import jquants.UnitOfMeasure;
-import jquants.motion.VolumeFlowRate;
-import jquants.space.Volume;
 import jquants.time.SecondTimeDerivative;
 import jquants.time.Time;
 import jquants.time.TimeDerivative;
-import jquants.time.TimeIntegral;
 import jquants.time.TimeSquared;
 
+/**
+ * Represents the rate of change of [[jquants.energy.Power]] over time
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class PowerRamp extends Quantity<PowerRamp> implements TimeDerivative<Power>, SecondTimeDerivative<Energy>{
   
   public Power change;

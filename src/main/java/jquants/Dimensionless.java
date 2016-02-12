@@ -17,17 +17,15 @@ import jquants.time.Time;
 import static jquants.time.Time.*;
 import jquants.time.TimeIntegral;
 
-
 /**
  * Represents a quantity of some thing for which there is no dimension.
  *
  * This may be used to represent counts or other discrete amounts of everyday life,
  * but may also represent ratios between like quantities where the units have cancelled out.
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param value Double the amount
  */
 public class Dimensionless extends Quantity<Dimensionless> implements TimeIntegral<Frequency> {
   

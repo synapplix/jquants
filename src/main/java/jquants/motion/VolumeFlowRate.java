@@ -21,6 +21,11 @@ import jquants.time.Time.TimeUnit;
 import jquants.time.TimeDerivative;
 import static jquants.space.Volume.*;
 
+/**
+ * @author  Matahias Braeu 
+ * @since   1.0
+ *
+ */
 public class VolumeFlowRate extends Quantity<VolumeFlowRate> implements TimeDerivative<Volume>{
   public Volume change;
   public Time time;

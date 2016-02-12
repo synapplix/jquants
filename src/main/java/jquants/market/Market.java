@@ -50,8 +50,8 @@ import static jquants.market.Money.*;
  * The defaultMoneyContext uses the USD as the default and provides a list of ~20 common currencies, and NO exchange rates.
  * If your application requires something different you should initialize your own implicit MoneyContext
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  */
 public class Market {
 

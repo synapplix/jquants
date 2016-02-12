@@ -44,10 +44,9 @@ import static jquants.mass.Mass.*;
 
 /**
  * 
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param value value in [[squants.space.SquareMeters]]
  */
 public final class Area extends Quantity<Area> {
 

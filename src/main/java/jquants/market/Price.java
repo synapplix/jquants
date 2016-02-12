@@ -10,17 +10,20 @@ import jquants.market.Money.Currency;
 /**
  * Represents a price
  *
- * A price is an [[squants.Ratio]] between a quantity of [[squants.market.Money]]
- * and some other [[squants.Quantity]]
+ * A price is an {@link Ratio} between a quantity of {@link Money}
+ * and some other {@link Quantity}
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param money Money
- * @param quantity Quantity
- * @tparam A Quantity Type
  */
 public class Price<A extends Quantity<A>> extends Ratio<Money, A> {
+  
+  /**
+   * 
+   * @param money Money
+   * @param quantity Quantity of type A
+   */
   public Price(Money money, A quantity) {
     super(money, quantity);
   }

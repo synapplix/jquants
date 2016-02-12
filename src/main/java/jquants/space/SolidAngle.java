@@ -39,10 +39,9 @@ import static jquants.space.Area.*;
 import static jquants.space.Volume.*;
 
 /**
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param value value in [[squants.space.SquaredRadians]]
  */
 public final class SolidAngle extends Quantity<SolidAngle> {
 

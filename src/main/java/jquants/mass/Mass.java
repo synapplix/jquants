@@ -21,10 +21,9 @@ import jquants.time.TimeIntegral;
 /**
  * Represents a quantity of Mass
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param value the value in the [[squants.mass.Grams]]
  */
 public class Mass extends BaseQuantity<Mass> implements TimeIntegral<MassFlowRate> {
 

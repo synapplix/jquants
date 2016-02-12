@@ -8,6 +8,13 @@ import java.util.stream.Stream;
 
 import com.googlecode.totallylazy.Pair;
 
+/**
+ * A base class for measurable quantities, instances of which contain a value and a unit
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public abstract class Quantity<A extends Quantity<A>> {
   
   public double value;
@@ -217,12 +224,10 @@ public abstract class Quantity<A extends Quantity<A>> {
     return pair(this.to(uom), uom.symbol);
   }
   /**
-   * Applies a function to the underlying value of the Quantity, returning a new Quantity in the same unit
-   * @param f Double => Double function
+   * Applies a function ( f Double TO Double) to the underlying value of the Quantity, returning a new Quantity in the same unit
+   * @param op Function
    * @return 
-   * @return
    */
-//  def map(f: Double ⇒ Double) = unit(f(value))
   public A map(Function<Quantity<A>, Quantity<A>> op) {
    return (A) Stream.of(this).map(op).findFirst().get();
                                                                    // map given operation op to the result; 

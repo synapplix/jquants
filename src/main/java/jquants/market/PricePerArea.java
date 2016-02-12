@@ -10,16 +10,20 @@ import jquants.space.Area;
 /**
  * Represents a price
  *
- * A price is an [[squants.Ratio]] between a quantity of [[squants.market.Money]]
- * and some other [[squants.Quantity]]
+ * A price is an {@link Ratio} between a quantity of {@link Money}
+ * and a {@link Area}.
  *
- * @author  mbraeu
+ * @author  Mathias Braeu
  * @since   1.0
  *
- * @param money Money
- * @param area Area
  */
 public class PricePerArea extends Ratio<Money, Area> {
+  
+  /**
+   * 
+   * @param money Money
+   * @param area Area
+   */
   public PricePerArea(Money money, Area area) {
     super(money,area);
   }

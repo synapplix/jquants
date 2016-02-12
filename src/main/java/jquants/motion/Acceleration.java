@@ -25,6 +25,13 @@ import static jquants.motion.Acceleration.*;
 import static jquants.motion.Velocity.*;
 import static jquants.motion.Jerk.*;
 
+/**
+ * Represents a quantity of acceleration
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class Acceleration extends Quantity<Acceleration> 
                            implements TimeDerivative<Velocity>, SecondTimeDerivative<Length>, TimeIntegral<Jerk> {
   public Velocity change;

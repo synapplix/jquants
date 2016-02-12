@@ -15,6 +15,11 @@ import jquants.mass.Mass.MassUnit;
 import jquants.space.Area;
 import jquants.space.Volume;
 
+/**
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class AreaDensity extends Quantity<AreaDensity> {
 
 	private AreaDensity(double value, AreaDensityUnit valueUnit) {

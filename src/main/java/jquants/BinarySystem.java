@@ -3,8 +3,8 @@ package jquants;
 /**
  * Singleton defining Metric System multipliers
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
  */
 public class BinarySystem {

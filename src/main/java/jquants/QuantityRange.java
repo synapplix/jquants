@@ -12,20 +12,24 @@ import com.googlecode.totallylazy.Sequence;
 /**
  * Represents a Range starting at one Quantity value and going up to another
  *
- * @author garyKeorkunian
- * @since 0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param lower
- *          Quantity representing the lower bound of the range
- * @param upper
- *          Quantity representing the upper bound of the range
- * @tparam A the Quantity Type
+ * @param <A> type of the Quantity of the range
  */
 public class QuantityRange<A extends Quantity<A>> {
 
   public A lower;
   public A upper;
 
+  /**
+   * New QuantityRange with Quantities of type A
+   * 
+   * @param lower
+   *          Quantity representing the lower bound of the range
+   * @param upper
+   *          Quantity representing the upper bound of the range
+  */
   public QuantityRange(A lower, A upper) {
     if (lower.value >= upper.value)
       throw new IllegalArgumentException("QuantityRange upper bound must be greater than or equal to the lower bound");
@@ -87,7 +91,7 @@ public class QuantityRange<A extends Quantity<A>> {
    * evenly divisible by `that`, the last item in the list will contain the
    * remainder
    *
-   * QuantityRange(Count(1), Count(4) / Count(1) => Seq(Count(1), Count(2),
+   * QuantityRange(Count(1), Count(4) / Count(1) will return:  Seq(Count(1), Count(2),
    * Count(3), Count(4))
    *
    * @param that
@@ -138,15 +142,13 @@ public class QuantityRange<A extends Quantity<A>> {
 
   /**
    * Divides the range into a Seq of ranges of `size` each and applies a f to
-   * each element
-   * 
-   * @param <T>
+   * each element having A as Quantity type of the size parameter
    *
    * @param size
    *          Quantity representing the size for each QuantityRange in the Seq
    * @param op
    *          the side affecting operation
-   * @return
+   *
    */
   // def foreach[U](size: A)(op: QuantityRange[A] ⇒ U) = /(size).foreach(op)
   public void foreach(A size, Consumer<? super QuantityRange> op) {
@@ -161,7 +163,6 @@ public class QuantityRange<A extends Quantity<A>> {
    *          Quantity representing the size for each QuantityRange in the Seq
    * @param op
    *          the side affecting operation
-   * @return
    */
   // def foreach[U](divisor: Double)(op: QuantityRange[A] ⇒ U) =
   // /(divisor).foreach(op)
@@ -171,15 +172,14 @@ public class QuantityRange<A extends Quantity<A>> {
 
   /**
    * Divides the range into a Seq of ranges of `size` each and applies a map
-   * operation to each
-   * @param <B>
+   * operation to each. 
    *
    * @param size
    *          Quantity representing the size for each QuantityRange in the Seq
    * @param op
    *          the transformation operation
-   * @tparam B the result type of the map operation
-   * @return
+   *          
+   * @return ArrayList filled with resulting {@link QuantityRange} consisting of Quantities of type A of the map operation
    */
   // def map[B](size: A)(op: QuantityRange[A] ⇒ B): Seq[B] = /(size).map(op)
   // def map[B](divisor: Double)(op: QuantityRange[A] ⇒ B): Seq[B] =
@@ -206,7 +206,6 @@ public class QuantityRange<A extends Quantity<A>> {
    *          Quantity representing the size for each QuantityRange in the Seq
    * @param op
    *          the transformation operation
-   * @tparam B the result type of the map operation
    * @return
    */
   public ArrayList<?> map(double divisor, Function<QuantityRange<A>, ?> op) {
@@ -224,17 +223,12 @@ public class QuantityRange<A extends Quantity<A>> {
    * Divides the range into a Seq of ranges of `size` each and applies a
    * foldLeft operation
    * 
-   * @param <B>
-   *
    * @param size
    *          Quantity representing the size for each QuantityRange in the Seq
    * @param z
-   *          the start value
+   *          the start value, a Quantity of type A
    * @param op
    *          the binary operator
-   * @param seed 
-   * @return
-   * @tparam B the result type of the binary operator
    * @return
    */
   // def foldLeft[B](size: A, z: B)(op: (B, QuantityRange[A]) ⇒ B): B =
@@ -251,13 +245,12 @@ public class QuantityRange<A extends Quantity<A>> {
    * Divides the range into a Seq of ranges of `size` each and applies a
    * foldLeft operation
    *
-   * @param divisor
+   * @param size
    *          The number of ranges to split the range into
    * @param z
-   *          the start value
+   *          the start value, a Quantity of type A
    * @param op
    *          the binary operator
-   * @tparam B the result type of the binary operator
    * @return
    */
   // def foldLeft[B](divisor: Double, z: B)(op: (B, QuantityRange[A]) ⇒ B): B =
@@ -276,10 +269,9 @@ public class QuantityRange<A extends Quantity<A>> {
    * @param size
    *          Quantity representing the size for each QuantityRange in the Seq
    * @param z
-   *          the start value
+   *          the start value, a Quantity of type A
    * @param op
    *          the binary operator
-   * @tparam B the result type of the binary operator
    * @return
    */
   // def foldRight[B](size: A, z: B)(op: (QuantityRange[A], B) ⇒ B): B =
@@ -294,13 +286,12 @@ public class QuantityRange<A extends Quantity<A>> {
    * Divides the range into a Seq of ranges of `size` each and applies a
    * foldRight operation
    *
-   * @param divisor
+   * @param size
    *          The number of ranges to split the range into
    * @param z
-   *          the start value
+   *          the start value, a Quantity of type A
    * @param op
    *          the binary operator
-   * @tparam B the result type of the binary operator
    * @return
    */
   // def foldRight[B](divisor: Double, z: B)(op: (QuantityRange[A], B) ⇒ B): B =
@@ -465,8 +456,8 @@ public class QuantityRange<A extends Quantity<A>> {
    */
   // def partiallyContains(range: QuantityRange[A]) = range.lower < upper &&
   // range.upper > lower
-  public boolean partiallyContains(QuantityRange<A> that) {
-    return that.lower.value < this.upper.value && that.upper.value > this.lower.value;
+  public boolean partiallyContains(QuantityRange<A> range) {
+    return range.lower.value < this.upper.value && range.upper.value > this.lower.value;
   }
 
   /**
@@ -477,8 +468,8 @@ public class QuantityRange<A extends Quantity<A>> {
    * @return
    */
   // def includes(q: A) = q >= lower && q <= upper
-  public boolean includes(A that) {
-    return that.value >= lower.value && that.value <= upper.value;
+  public boolean includes(A q) {
+    return q.value >= lower.value && q.value <= upper.value;
   }
 
   /**
@@ -508,8 +499,8 @@ public class QuantityRange<A extends Quantity<A>> {
    */
   // def partiallyIncludes(range: QuantityRange[A]) = range.lower <= upper &&
   // range.upper >= lower
-  public boolean partiallyIncludes(QuantityRange<A> that) {
-    return that.lower.value <= this.upper.value && that.upper.value >= this.lower.value;
+  public boolean partiallyIncludes(QuantityRange<A> range) {
+    return range.lower.value <= this.upper.value && range.upper.value >= this.lower.value;
   }
 
   /**

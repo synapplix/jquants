@@ -26,16 +26,14 @@ import static jquants.motion.Acceleration.*;
 /**
  * Represents a quantify of Velocity
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param distance The distance traveled
- * @param time The travel time
  */
 public class Velocity extends Quantity<Velocity> implements TimeDerivative<Length>, TimeIntegral<Acceleration>, SecondTimeIntegral<Jerk> {
   public Length change;
   public Time time;
-  
+
   private Velocity(Length distance, Time time) {
     this.change = distance;
     this.time = time;

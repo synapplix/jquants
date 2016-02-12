@@ -7,14 +7,17 @@ import jquants.Ratio;
 /**
  * Represent the rate of exchange between two currencies
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param base the base or "Fixed" currency (usually a value of 1 currency unit, but not required)
- * @param counter the counter or "Variable" currency
  */
 public class CurrencyExchangeRate extends Ratio<Money, Money> {
-
+  
+ /**
+  * 
+  * @param base the base or "Fixed" currency (usually a value of 1 currency unit, but not required)
+  * @param counter the counter or "Variable" currency
+  */
   public CurrencyExchangeRate(Money base, Money counter) {
     super(base,counter);
     if (base.currency.equals(counter.currency))

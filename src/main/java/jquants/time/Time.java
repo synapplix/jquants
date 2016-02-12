@@ -20,7 +20,13 @@ import static jquants.space.Length.*;
 import static jquants.time.TimeSquared.*;
 import jquants.time.TimeSquared;
 
-
+/**
+ * Represents a quantity of Time
+ * 
+ * @author Mathias Braeu
+ * @since 1.0
+ *
+ */
 public class Time extends BaseQuantity<Time> {
   
   private Time(double value, TimeUnit valueUnit) {

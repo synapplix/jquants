@@ -46,10 +46,9 @@ import jquants.motion.MassFlowRate;
 /**
  * Represents a quantity of dimension (three-dimensional space)
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param value value in [[squants.space.CubicMeters]]
  */
 public final class Volume extends Quantity<Volume> implements TimeIntegral<VolumeFlowRate> {
 

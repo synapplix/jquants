@@ -50,10 +50,9 @@ import static jquants.space.Volume.*;
 /**
  * Represents a quantity of length
  *
- * @author  garyKeorkunian
- * @since   0.1
+ * @author  Mathias Braeu
+ * @since   1.0
  *
- * @param value value in  [[squants.space.Meters]]
  */
 public final class Length extends BaseQuantity<Length> implements TimeIntegral<Velocity>, SecondTimeIntegral<Acceleration> {
   

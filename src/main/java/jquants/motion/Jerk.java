@@ -14,6 +14,13 @@ import jquants.time.Time;
 import jquants.time.TimeDerivative;
 import jquants.time.TimeSquared;
 
+/**
+ * Represents the third time derivative of position after Velocity and Acceleration
+ *
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class Jerk extends Quantity<Jerk> implements TimeDerivative<Acceleration>, SecondTimeDerivative<Velocity>{
 
   private Jerk(double value, JerkUnit valueUnit) {

@@ -42,6 +42,13 @@ import static jquants.space.Area.*;
 import static jquants.space.Volume.*;
 import static jquants.time.Time.*;
 
+/**
+ * Represents a quantity of energy
+ *
+ * @author  Mathias Braeu
+ * @since   q.0
+ *
+ */
 public class EnergyDensity extends Quantity<EnergyDensity> {
   private EnergyDensity(double value, EnergyDensityUnit valueUnit) {
     this.value = value;

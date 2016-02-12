@@ -42,6 +42,11 @@ import static jquants.space.Area.*;
 import static jquants.space.Volume.*;
 import static jquants.time.Time.*;
 
+/**
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class SpecificEnergy extends Quantity<SpecificEnergy> {
   private SpecificEnergy(double value, SpecificEnergyUnit valueUnit) {
 	this.value = value;

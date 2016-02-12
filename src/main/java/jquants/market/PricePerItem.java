@@ -12,16 +12,19 @@ import jquants.market.Money.Currency;
 /**
  * Represents a price
  *
- * A price is an [[squants.Ratio]] between a quantity of [[squants.market.Money]]
- * and some other [[squants.Quantity]]
+ * A price is an [[jquants.Ratio]] between a quantity of [[jquants.market.Money]]
+ * and a [[jquants.Dimensionless]]
  *
- * @author  mbraeu
+ * @author  Mathias Braeu
  * @since   1.0
  *
- * @param money Money
- * @param area Area
  */
 public class PricePerItem extends Ratio<Money, Dimensionless> {
+  
+  /**
+   * 
+   * @param money Money
+   */
   public PricePerItem(Money money) {
    super(money, each(1));
   }

@@ -24,6 +24,11 @@ import static jquants.motion.Velocity.MetersPerSecond;
 import static jquants.space.Length.Feet;
 import static jquants.time.Time.*;
 
+/**
+ * @author  Mathias Braeu
+ * @since   1.0
+ *
+ */
 public class MassFlowRate extends Quantity<MassFlowRate> implements TimeDerivative<Mass>{
 
   public Mass change;
