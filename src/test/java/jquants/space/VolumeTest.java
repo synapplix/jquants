@@ -135,14 +135,14 @@ public class VolumeTest {
     assertThat(UsCups(1).toString(), is("1.0 c"));
   }
   
-  @Test
-  public void testReturnMassWhenMultipliedByDensity() {
-    assertThat(CubicMeters(1).multiply(KilogramsPerCubicMeter(10)), is(Kilograms(10)));
-  }
-
-  public void testReturnEnergyWhenMultipliedByEnergyDensity() {
-	assertThat(CubicMeters(1).multiply(JoulesPerCubicMeter(10)), is(Joules(10)));
-  }
+//  @Test
+//  public void testReturnMassWhenMultipliedByDensity() {
+//    assertThat(CubicMeters(1).multiply(KilogramsPerCubicMeter(10)), is(Kilograms(10)));
+//  }
+//
+//  public void testReturnEnergyWhenMultipliedByEnergyDensity() {
+//	assertThat(CubicMeters(1).multiply(JoulesPerCubicMeter(10)), is(Joules(10)));
+//  }
 
   public void testReturnLengthWhenDividedByArea() {
 	assertThat(CubicMeters(1).div(SquareMeters(1)), is(Meters(1)));

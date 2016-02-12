@@ -223,8 +223,8 @@ public abstract class Quantity<A extends Quantity<A>> {
    * @return
    */
 //  def map(f: Double ⇒ Double) = unit(f(value))
-  public Quantity<A> map(Function<Quantity<A>, Quantity<A>> op) {
-   return Stream.of(this).map(op).findFirst().get();
+  public A map(Function<Quantity<A>, Quantity<A>> op) {
+   return (A) Stream.of(this).map(op).findFirst().get();
                                                                    // map given operation op to the result; 
                                                                    // retrieve the result as an array
   }

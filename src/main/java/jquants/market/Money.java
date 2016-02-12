@@ -11,8 +11,10 @@ import com.googlecode.totallylazy.Pair;
 import com.googlecode.totallylazy.regex.Regex;
 
 import jquants.Dimension;
+import jquants.Dimensionless;
 import jquants.Quantity;
 import jquants.UnitOfMeasure;
+import jquants.space.Area;
 
 public class Money extends Quantity<Money> {
 
