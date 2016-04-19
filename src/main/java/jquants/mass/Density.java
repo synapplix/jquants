@@ -6,12 +6,10 @@ import static jquants.mass.Mass.Kilograms;
 import com.googlecode.totallylazy.Option;
 
 import jquants.BaseQuantityUnit;
-import jquants.BaseQuantity;
-import jquants.Quantity;
 import jquants.Dimension;
+import jquants.Quantity;
 import jquants.UnitOfMeasure;
 import jquants.space.Volume;
-import jquants.mass.Mass;
 
 /**
  * @author  Mathias Braeu

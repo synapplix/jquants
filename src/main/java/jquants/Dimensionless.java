@@ -1,20 +1,13 @@
 package jquants;
 
 import static com.googlecode.totallylazy.Sequences.sequence;
-
-import java.nio.file.DirectoryNotEmptyException;
+import static jquants.time.Frequency.Hertz;
+import static jquants.time.Time.Seconds;
 
 import com.googlecode.totallylazy.Option;
 
-import jquants.mass.Mass;
-import jquants.space.Length;
-
-import static jquants.time.Frequency.*;
 import jquants.time.Frequency;
-import jquants.time.Frequency.*;
-import jquants.time.Frequency.FrequencyUnit;
 import jquants.time.Time;
-import static jquants.time.Time.*;
 import jquants.time.TimeIntegral;
 
 /**

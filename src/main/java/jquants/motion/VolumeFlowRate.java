@@ -1,25 +1,22 @@
 package jquants.motion;
 
 import static com.googlecode.totallylazy.Sequences.sequence;
-import static jquants.space.Length.Feet;
-import static jquants.time.Time.*;
+import static jquants.space.Volume.CubicFeet;
+import static jquants.space.Volume.CubicMeters;
+import static jquants.space.Volume.UsGallons;
+import static jquants.time.Time.Seconds;
+import static jquants.time.Time.SecondsPerDay;
+import static jquants.time.Time.SecondsPerHour;
+import static jquants.time.Time.SecondsPerMinute;
 
 import com.googlecode.totallylazy.Option;
 
 import jquants.Dimension;
 import jquants.Quantity;
 import jquants.UnitOfMeasure;
-import jquants.motion.Velocity.VelocityUnit;
-import jquants.space.Area;
-import jquants.space.Length;
 import jquants.space.Volume;
-import jquants.space.Length.LengthUnit;
-import jquants.space.Volume.VolumeUnit;
 import jquants.time.Time;
-import static jquants.time.Time.*;
-import jquants.time.Time.TimeUnit;
 import jquants.time.TimeDerivative;
-import static jquants.space.Volume.*;
 
 /**
  * @author  Matahias Braeu 

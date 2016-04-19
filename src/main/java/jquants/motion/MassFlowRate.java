@@ -1,28 +1,18 @@
 package jquants.motion;
 
-import com.googlecode.totallylazy.Option;
-import com.googlecode.totallylazy.time.Seconds;
+import static com.googlecode.totallylazy.Sequences.sequence;
+import static jquants.mass.Mass.Kilograms;
+import static jquants.mass.Mass.Pounds;
+import static jquants.time.Time.Seconds;
+import static jquants.time.Time.SecondsPerHour;
 
-import jquants.BaseQuantityUnit;
 import jquants.Dimension;
 import jquants.MetricSystem;
 import jquants.Quantity;
 import jquants.UnitOfMeasure;
 import jquants.mass.Mass;
-
-import static com.googlecode.totallylazy.Sequences.sequence;
-import static jquants.mass.Mass.*;
-import jquants.motion.Acceleration.AccelerationUnit;
-import jquants.space.Length;
-import jquants.space.Volume;
-import jquants.space.Volume.VolumeUnit;
 import jquants.time.Time;
-import static jquants.time.Time.*;
 import jquants.time.TimeDerivative;
-
-import static jquants.motion.Velocity.MetersPerSecond;
-import static jquants.space.Length.Feet;
-import static jquants.time.Time.*;
 
 /**
  * @author  Mathias Braeu

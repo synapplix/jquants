@@ -1,47 +1,27 @@
 package jquants.space;
 
+import static com.googlecode.totallylazy.Sequences.sequence;
+import static jquants.motion.VolumeFlowRate.CubicMetersPerSecond;
+import static jquants.space.Area.SquareMeters;
+import static jquants.space.Length.Feet;
+import static jquants.space.Length.Inches;
+import static jquants.space.Length.Meters;
+import static jquants.space.Length.UsMiles;
+import static jquants.space.Length.Yards;
+import static jquants.time.Time.Seconds;
+
 import java.math.BigDecimal;
-import java.util.Set;
-import java.util.regex.MatchResult;
 
 import com.googlecode.totallylazy.Option;
-import com.googlecode.totallylazy.Sequence;
-import com.googlecode.totallylazy.Sequences;
-import com.googlecode.totallylazy.regex.Regex;
 
-import jquants.BaseQuantity;
 import jquants.BaseQuantityUnit;
+import jquants.Dimension;
 import jquants.MetricSystem;
 import jquants.Quantity;
-import jquants.Dimension;
 import jquants.UnitOfMeasure;
-import jquants.electro.Conductivity;
-import jquants.electro.ElectricalConductance;
-import jquants.electro.ElectricalResistance;
-import jquants.electro.Resistivity;
-import jquants.energy.Energy;
-import jquants.energy.Power;
-import jquants.market.Market;
-import jquants.market.Money;
-import jquants.market.Money.QuantityStringParseException;
-import jquants.motion.Force;
-import jquants.motion.Velocity;
 import jquants.motion.VolumeFlowRate;
-import jquants.radio.RadiantIntensity;
-import jquants.radio.SpectralIntensity;
-import jquants.radio.SpectralPower;
 import jquants.time.Time;
-import static jquants.time.Time.*;
 import jquants.time.TimeIntegral;
-import static com.googlecode.totallylazy.Sequences.sequence;
-import static com.googlecode.totallylazy.regex.Regex.regex;
-import static jquants.energy.Power.*;
-import static jquants.space.Area.*;
-import static jquants.space.Length.*;
-import static jquants.motion.VolumeFlowRate.*;
-import static jquants.motion.Jerk.*;
-import static jquants.motion.MassFlowRate.*;
-import jquants.motion.MassFlowRate;
 
 /**
  * Represents a quantity of dimension (three-dimensional space)

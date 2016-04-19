@@ -3,12 +3,10 @@ package jquants.time;
 import static jquants.time.Frequency.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static jquants.time.*;
 import static jquants.Dimensionless.*;
 
 import org.junit.Test;
 
-import jquants.Dimensionless;
 import jquants.MetricSystem;
 
 public class FrequencyTest {

@@ -1,7 +1,6 @@
 package jquants.mass;
 
 import static com.googlecode.totallylazy.Sequences.sequence;
-import static jquants.mass.Mass.Kilograms;
 
 import com.googlecode.totallylazy.Option;
 
@@ -9,8 +8,6 @@ import jquants.BaseQuantity;
 import jquants.BaseQuantityUnit;
 import jquants.Dimension;
 import jquants.UnitOfMeasure;
-import jquants.mass.Mass.MassUnit;
-import jquants.space.Volume;
 
 /**
  * @author  Mathias Braeu

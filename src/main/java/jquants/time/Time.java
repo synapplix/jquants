@@ -1,24 +1,17 @@
 package jquants.time;
 
-import org.hamcrest.Matcher;
+import static com.googlecode.totallylazy.Sequences.sequence;
+import static jquants.space.Length.Length;
+import static jquants.time.TimeSquared.TimeSquared;
 
 import com.googlecode.totallylazy.Option;
 
 import jquants.BaseQuantity;
-import jquants.BaseQuantityUnit;
 import jquants.Dimension;
 import jquants.UnitOfMeasure;
 import jquants.motion.Acceleration;
 import jquants.motion.Velocity;
-import jquants.motion.VolumeFlowRate;
-
-import static com.googlecode.totallylazy.Sequences.sequence;
-import static jquants.motion.Velocity.*;
-
 import jquants.space.Length;
-import static jquants.space.Length.*;
-import static jquants.time.TimeSquared.*;
-import jquants.time.TimeSquared;
 
 /**
  * Represents a quantity of Time

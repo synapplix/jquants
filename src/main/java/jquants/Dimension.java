@@ -5,20 +5,17 @@ import static com.googlecode.totallylazy.Some.some;
 import static com.googlecode.totallylazy.regex.Regex.regex;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.regex.MatchResult;
 
-import jquants.market.Money.QuantityStringParseException;
-import jquants.space.Length;
-
-import com.googlecode.totallylazy.None;
 import com.googlecode.totallylazy.Option;
 import com.googlecode.totallylazy.Sequence;
 import com.googlecode.totallylazy.predicates.LogicalPredicate;
 import com.googlecode.totallylazy.regex.Regex;
+
+import jquants.market.Money.QuantityStringParseException;
+import jquants.space.Length;
 
 /**
  * Represents a Dimension or Quantity Type
