@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import com.googlecode.totallylazy.None;
 import com.googlecode.totallylazy.Option;
 import com.googlecode.totallylazy.Predicate;
-import com.googlecode.totallylazy.Sequence;
+import com.googlecode.totallylazy.Some;
 
 import jquants.market.Money.Currency;
 import static jquants.market.Money.Money;
@@ -146,9 +147,9 @@ public class MoneyContext {
       }
       if (curs.size() > 0) {
         Money m = Money(1d, curs.get(0));
-        return some(new CurrencyExchangeRate(convert(m, curA), convert(m, curB)));
+        return Some.some(new CurrencyExchangeRate(convert(m, curA), convert(m, curB)));
       } else {
-        return none();
+        return None.none();
       }
     }
   }
