@@ -43,8 +43,8 @@ public class PowerRamp extends Quantity<PowerRamp> implements TimeDerivative<Pow
 	return PowerRamp.parseString(s);
   }
 	  
-  public Power multiply(Time that) {return Watts(toWattsPerHour() * that.toHours());}
-	public Energy multiply(TimeSquared that){return this.multiply( (that.time1).multiply(that.time2));}
+  @Override
+  public Energy multiply(TimeSquared that){return (this.multiply(that.time1)).multiply(that.time2);}
  
 	public Time time() {return Hours(1);}
 	public Power timeIntegrated() {return Watts(toWattsPerHour());}

@@ -31,8 +31,8 @@ public class Jerk extends Quantity<Jerk> implements TimeDerivative<Acceleration>
   
   public Acceleration timeIntegrated() {return MetersPerSecondSquared(toMetersPerSecondCubed());}
   public Time time() {return Seconds(1);}
-
-  public Velocity multiply(TimeSquared that) {return this.multiply(that.time1.multiply(that.time2));}
+  @Override
+  public Velocity multiply(TimeSquared that) {return this.multiply(that.time1).multiply(that.time2);}
   
   public double toMetersPerSecondCubed() { return to(MetersPerSecondCubed);}
   public double toFeetPerSecondCubed() { return to(FeetPerSecondCubed);}

@@ -1,29 +1,29 @@
 package jquants.motion;
 
+import static com.googlecode.totallylazy.Sequences.sequence;
+import static jquants.motion.Jerk.MetersPerSecondCubed;
+import static jquants.motion.Velocity.FeetPerSecond;
+import static jquants.motion.Velocity.MetersPerSecond;
+import static jquants.motion.Velocity.UsMilesPerHour;
+import static jquants.space.Length.Feet;
+import static jquants.space.Length.Meters;
+import static jquants.space.Length.UsMiles;
+import static jquants.time.Time.Hours;
+import static jquants.time.Time.Seconds;
+
 import com.googlecode.totallylazy.Option;
 
-import jquants.MetricSystem;
-import jquants.Quantity;
 import jquants.Dimension;
+import jquants.Quantity;
 import jquants.UnitOfMeasure;
-import jquants.energy.Energy;
-import jquants.mass.Mass;
 import jquants.motion.Velocity.VelocityUnit;
 import jquants.space.Length;
-import jquants.space.Length.LengthUnit;
 import jquants.time.SecondTimeDerivative;
 import jquants.time.Time;
 import jquants.time.Time.TimeUnit;
 import jquants.time.TimeDerivative;
 import jquants.time.TimeIntegral;
 import jquants.time.TimeSquared;
-
-import static com.googlecode.totallylazy.Sequences.sequence;
-import static jquants.space.Length.*;
-import static jquants.time.Time.*;
-import static jquants.motion.Acceleration.*;
-import static jquants.motion.Velocity.*;
-import static jquants.motion.Jerk.*;
 
 /**
  * Represents a quantity of acceleration
@@ -54,9 +54,18 @@ public class Acceleration extends Quantity<Acceleration>
   }
 
 //public Force multiply(Mass that) {return Newtons(toMetersPerSecondSquared * that.toKilograms());}
+  @Override
   public Time time() {return Seconds(1);}
-  public Velocity timeIntegrated() { return MetersPerSecond(toMetersPerSecondSquared());}
+  @Override
   public Jerk timeDerived() {return MetersPerSecondCubed(toMetersPerSecondSquared());}
+  @Override
+  public Velocity timeIntegrated() { return MetersPerSecond(toMetersPerSecondSquared());}
+  @Override
+  public Time div(Jerk that) {return that.time().multiply(this.timeDerived().div(that));}
+  @Override
+  public Length multiply(TimeSquared that) { return (this.multiply(that.time1)).multiply(that.time2);}
+  @Override
+  public double div(Acceleration that) {return value / that.to(this.valueUnit);}
   
   public double to(AccelerationUnit unit) { return change.to(unit.velocityUnit) / time.to(unit.timeUnit);}
   public double toFeetPerSecondSquared() {return to(FeetPerSecondSquared);}
@@ -122,7 +131,7 @@ public class Acceleration extends Quantity<Acceleration>
   
   public static Acceleration mpss(double value) {return MetersPerSecondSquared(value);}
   public static Acceleration fpss(double value) {return FeetPerSecondSquared(value);}
-  
+
 //implicit object AccelerationNumeric extends AbstractQuantityNumeric[dimension](dimension.valueUnit)
 }
 
