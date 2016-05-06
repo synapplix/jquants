@@ -11,6 +11,10 @@
     <description>The Java API for Mixed Calculations of Scientific Units and Sums of Money</description>
     <url>http://jquants.org</url>
     
+    <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+  
     <licenses>
       <license>
         <name>The Apache License, Version 2.0</name>
@@ -57,8 +61,27 @@
      <build>
         <plugins>
             <plugin>
+				      <artifactId>maven-compiler-plugin</artifactId>
+				      <version>3.5.1</version>
+			        <configuration>
+			          <compilerId>eclipse</compilerId>
+			          <source>1.8</source>
+			          <target>1.8</target>
+			          <complianceLevel>1.8</complianceLevel>
+			        </configuration>
+			        <dependencies>
+			          <dependency>
+			            <groupId>org.codehaus.plexus</groupId>
+			            <artifactId>plexus-compiler-eclipse</artifactId>
+			            <version>2.7</version>
+			          </dependency>
+			        </dependencies>
+			      </plugin>
+			      
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -69,7 +92,6 @@
                     </execution>
                 </executions>
             </plugin>
-            
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -85,6 +107,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -98,6 +121,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
