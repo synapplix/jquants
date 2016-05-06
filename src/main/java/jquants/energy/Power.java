@@ -78,11 +78,15 @@ public class Power extends Quantity<Power> implements TimeDerivative<Energy>, Ti
 //  public RadiantIntensity div(SolidAngle that) { return RadiantIntensity(this, that);}
 //  public ElectricCurrent div(ElectricPotential that) { return Amperes(toWatts() / that.toVolts());}
 //  public ElectricPotential div(ElectricCurrent that) { return Volts(toWatts() / that.toAmperes());}
-  public Energy multiply(Time that) {return WattHours(toWatts() * that.toHours());}
 
+  @Override
   public Time time() {return Hours(1);}
-  public Energy timeIntegrated() {return WattHours(toWatts());}
+  @Override
   public PowerRamp timeDerived() {return WattsPerHour(toWatts());}
+  @Override
+  public Energy timeIntegrated() {return WattHours(toWatts());}
+  @Override
+  public Time div(PowerRamp that) {return that.time().multiply(this.timeDerived().div(that));}
   
   public double toMilliwatts() { return to(Milliwatts);}
   public double toWatts() { return to(Watts);}

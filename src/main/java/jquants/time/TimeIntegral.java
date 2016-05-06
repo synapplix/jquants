@@ -10,13 +10,11 @@ import jquants.Quantity;
  *
  * @param A The Quantity type for the TimeDerivative for which this is the base
  */
-public interface TimeIntegral<A extends Quantity<A> &TimeDerivative> {
+public interface TimeIntegral<A extends Quantity<A>> {
   Time time(); 		  //generates a standard time: 1s
   A timeDerived();	//returns the derived Quantity A of the Quantity (e.g Length.timeDerived = Velocity)
   
   default A div(Time that) { return this.timeDerived().multiply((this.time().div(that))); }
-  
-  default A per(Time that){ return this.div(that); }
-  default Time div (A that) { return that.time().multiply(this.timeDerived().div(that));  }
-  
+  default A per(Time that) { return this.div(that); }
+  public Time div (A that);
 }

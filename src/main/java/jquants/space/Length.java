@@ -1,51 +1,24 @@
 package jquants.space;
 
-import java.math.BigDecimal;
-import java.util.Set;
-import java.util.regex.MatchResult;
-
-import org.hamcrest.Matcher;
+import static com.googlecode.totallylazy.Sequences.sequence;
+import static jquants.motion.Velocity.MetersPerSecond;
+import static jquants.space.Area.Area;
+import static jquants.space.Volume.Volume;
+import static jquants.time.Time.Seconds;
 
 import com.googlecode.totallylazy.Option;
-import com.googlecode.totallylazy.Sequence;
-import com.googlecode.totallylazy.Sequences;
-import com.googlecode.totallylazy.regex.Regex;
 
 import jquants.BaseQuantity;
 import jquants.BaseQuantityUnit;
-import jquants.MetricSystem;
-import jquants.Quantity;
 import jquants.Dimension;
+import jquants.MetricSystem;
 import jquants.UnitOfMeasure;
-import jquants.electro.Conductivity;
-import jquants.electro.ElectricalConductance;
-import jquants.electro.ElectricalResistance;
-import jquants.electro.Resistivity;
-import jquants.energy.Energy;
-import jquants.energy.Power;
-import jquants.market.Market;
-import jquants.market.Money;
-import jquants.market.Money.QuantityStringParseException;
 import jquants.motion.Acceleration;
-import jquants.motion.Force;
 import jquants.motion.Velocity;
-import static jquants.motion.Velocity.*;
-
-import jquants.radio.RadiantIntensity;
-import jquants.radio.SpectralIntensity;
-import jquants.radio.SpectralPower;
 import jquants.time.SecondTimeIntegral;
 import jquants.time.Time;
 import jquants.time.TimeIntegral;
 import jquants.time.TimeSquared;
-
-import static jquants.time.Time.*;
-
-import static com.googlecode.totallylazy.Sequences.sequence;
-import static com.googlecode.totallylazy.regex.Regex.regex;
-import static jquants.energy.Power.*;
-import static jquants.space.Area.*;
-import static jquants.space.Volume.*;
 
 /**
  * Represents a quantity of length
@@ -92,10 +65,14 @@ public final class Length extends BaseQuantity<Length> implements TimeIntegral<V
 //  public ElectricalConductance multiply(Conductivity that) { return Siemens(toMeters() * that.toSiemensPerMeter());}
 //  public Resistivity multiply(ElectricalResistance that) { return OhmMeters(toMeters() * that.toOhms());}
 
-  public Time time() { return Seconds(1);}
+  @Override
+  public Time time() {return Seconds(1);}
+  @Override
   public Velocity timeDerived() {return MetersPerSecond(toMeters());}
-  public Acceleration div(TimeSquared that) {return this.div(that.time1.multiply(that.time2));}
-
+  @Override
+  public Time div(Velocity that) {double div = this.timeDerived().div(that); return that.time().multiply(div);}
+  @Override
+  public TimeSquared div(Acceleration that) { return this.div(that.timeIntegrated()).multiply(time());}
   public Area squared() { return this.multiply(this);}
   public Volume cubed() { return this.multiply(this).multiply(this);}
 
@@ -116,7 +93,6 @@ public final class Length extends BaseQuantity<Length> implements TimeIntegral<V
   public double toNauticalMiles() { return to(NauticalMiles);}
   public double toAstronomicalUnits() { return to(AstronomicalUnits);}
   public double toLightYears() { return to(LightYears);}
-
   
   @Override
   public String toString() {

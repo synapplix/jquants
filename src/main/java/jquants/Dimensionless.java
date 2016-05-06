@@ -39,6 +39,8 @@ private Dimensionless(double value, DimensionlessUnit valueUnit) {
   
   @Override
   public Frequency timeDerived() { return Hertz(this.toEach());}
+  @Override
+  public Time div(Frequency that) {return that.time().multiply(this.timeDerived().div(that));}
   
 
   public double toPercent() {return to(Percent);}

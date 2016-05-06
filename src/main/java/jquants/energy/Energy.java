@@ -1,49 +1,26 @@
 package jquants.energy;
 
-import java.math.BigDecimal;
-import java.util.Set;
-import java.util.regex.MatchResult;
+import static com.googlecode.totallylazy.Sequences.sequence;
+import static jquants.energy.EnergyDensity.JoulesPerCubicMeter;
+import static jquants.energy.Power.Watts;
+import static jquants.energy.SpecificEnergy.Grays;
+import static jquants.mass.Mass.Kilograms;
+import static jquants.space.Volume.CubicMeters;
+import static jquants.time.Time.Hours;
 
 import com.googlecode.totallylazy.Option;
-import com.googlecode.totallylazy.Sequence;
-import com.googlecode.totallylazy.Sequences;
-import com.googlecode.totallylazy.regex.Regex;
 
-import jquants.BaseQuantity;
 import jquants.BaseQuantityUnit;
+import jquants.Dimension;
 import jquants.MetricSystem;
 import jquants.Quantity;
-import jquants.Dimension;
 import jquants.UnitOfMeasure;
-import jquants.electro.Conductivity;
-import jquants.electro.ElectricalConductance;
-import jquants.electro.ElectricalResistance;
-import jquants.electro.Resistivity;
-import jquants.energy.Energy;
-import jquants.energy.Power;
-import jquants.market.Market;
-import jquants.market.Money;
-import jquants.market.Money.QuantityStringParseException;
 import jquants.mass.Mass;
-import jquants.motion.Force;
-import jquants.motion.Velocity;
-import jquants.radio.RadiantIntensity;
-import jquants.radio.SpectralIntensity;
-import jquants.radio.SpectralPower;
-import jquants.space.Length;
 import jquants.space.Volume;
 import jquants.time.SecondTimeIntegral;
 import jquants.time.Time;
 import jquants.time.TimeIntegral;
-import static com.googlecode.totallylazy.Sequences.sequence;
-import static com.googlecode.totallylazy.regex.Regex.regex;
-import static jquants.energy.Power.*;
-import static jquants.energy.EnergyDensity.*;
-import static jquants.energy.SpecificEnergy.*;
-import static jquants.mass.Mass.*;
-import static jquants.space.Area.*;
-import static jquants.space.Volume.*;
-import static jquants.time.Time.*;
+import jquants.time.TimeSquared;
 
 /**
  * Represents a quantity of energy
@@ -104,17 +81,19 @@ public class Energy extends Quantity<Energy> implements TimeIntegral<Power>, Sec
 //  public ElectricCharge div(ElectricPotential that) {return Coulombs(this.toJoules() / that.toVolts());}
 //  public ThermalCapacity div(Temperature that) {return JoulesPerKelvin(toJoules() / that.toKelvinDegrees());}
 //  public Kelvin div(ThermalCapacity that) {return Kelvin(toJoules() / that.toJoulesPerKelvin());}
-  public Power div(Time that) {return Watts(toJoules() / that.toHours());}
-  public Time div(Power that) {return Hours(toJoules() / that.toWatts());}
-
 //  def /(that: ChemicalAmount) = ??? // return MolarEnergy
 //  def /(that: dimension) = ??? // return Torque (dimensionally equivalent to energy as Angles are dimensionless)
 //
 //  def /(that: TimeSquared): PowerRamp = this / that.time1 / that.time2
 
+  @Override
+  public Time time() {return Hours(1);}  
+  @Override
   public Power timeDerived() {return Watts(this.toWattHours());}
-  public Time time() {return Hours(1);}    
-  
+  @Override
+  public Time div(Power that) {return that.time().multiply(this.timeDerived().div(that));}
+  @Override
+  public TimeSquared div(PowerRamp that) {return ((this).div((that).timeIntegrated()).multiply(time())); }
   public double toWattHours() {return to(WattHours);}
   public double toKilowattHours() {return to(KilowattHours);}
   public double toMegawattHours() {return to(MegawattHours);}

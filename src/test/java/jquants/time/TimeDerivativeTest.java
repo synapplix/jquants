@@ -70,8 +70,27 @@ public class TimeDerivativeTest {
 	
 	@Test
 	public void testShouldSatisfyTimeEqualsIntegralDividedByDerivative(){
-	
-	  assertEquals( Seconds(7200), UsMiles(110).div(UsMilesPerHour(55)) );
+
+    // Methods of the Quantitiy class
+    assertThat( UsMiles(110).div(UsMiles(55)), is(2.0)); // Length/Length => double
+    assertThat( Kilometers(110).div(Meters(100)), is(1100.0)); // Length/Length => double
+    assertThat( UsMiles(110).div(2), is(UsMiles(55))); // Length/double => Length
+    
+    // Using the div Method of the TimeIntegral
+    assertThat( Hours(2.0), is(UsMiles(110).div(UsMilesPerHour(55)))); // Length/Velocity => Time
+    
+    assertEquals( Seconds(2.0), MetersPerSecondSquared(110).div(MetersPerSecondCubed(55))); //Acceleration
+    assertEquals( Seconds(2.0), Each(110).div(Hertz(55))); //Dimensionless
+    assertEquals( Hours(2.0), WattHours(110).div(Watts(55))); //Energy
+    assertEquals( Seconds(2.0), Kilograms(110).div(KilogramsPerSecond(55))); //Mass 
+    assertEquals( Hours(2.0), Watts(110).div(WattsPerHour(55))); //Power
+    assertEquals( Seconds(2.0), MetersPerSecond(110).div(MetersPerSecondSquared(55))); //Velocity
+    assertEquals( Seconds(2.0), CubicMeters(110).div(CubicMetersPerSecond(55)) ); //Volume
+    assertEquals( Meters(100.0), (MetersPerSecondSquared(100).multiply(SecondsSquared(1)))); //Volume
+    
+    // Using the div Method of the SecondTimeIntegral
+    assertThat( Meters(100).div(MetersPerSecondSquared(100)), is(SecondsSquared(1.0))); // Length/Acceleration => Time²
+    
 	}
 	
 	@Test

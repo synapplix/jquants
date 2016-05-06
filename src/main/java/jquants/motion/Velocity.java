@@ -1,14 +1,21 @@
 package jquants.motion;
 
+import static com.googlecode.totallylazy.Sequences.sequence;
+import static jquants.motion.Acceleration.MetersPerSecondSquared;
+import static jquants.space.Length.Feet;
+import static jquants.space.Length.InternationalMiles;
+import static jquants.space.Length.Kilometers;
+import static jquants.space.Length.Meters;
+import static jquants.space.Length.NauticalMiles;
+import static jquants.space.Length.UsMiles;
+import static jquants.time.Time.Hours;
+import static jquants.time.Time.Seconds;
+
 import com.googlecode.totallylazy.Option;
 
-import jquants.MetricSystem;
-import jquants.Quantity;
 import jquants.Dimension;
+import jquants.Quantity;
 import jquants.UnitOfMeasure;
-import jquants.energy.Energy;
-import jquants.mass.Mass;
-import jquants.space.Area;
 import jquants.space.Length;
 import jquants.space.Length.LengthUnit;
 import jquants.time.SecondTimeIntegral;
@@ -17,11 +24,6 @@ import jquants.time.Time.TimeUnit;
 import jquants.time.TimeDerivative;
 import jquants.time.TimeIntegral;
 import jquants.time.TimeSquared;
-
-import static com.googlecode.totallylazy.Sequences.sequence;
-import static jquants.space.Length.*;
-import static jquants.time.Time.*;
-import static jquants.motion.Acceleration.*;
 
 /**
  * Represents a quantify of Velocity
@@ -57,23 +59,18 @@ public class Velocity extends Quantity<Velocity> implements TimeDerivative<Lengt
  
 //public Momentum multiply(Mass that) { return Momentum(that, this);}
   
-  public Length multiply(Time that) { return change.multiply(that.div(time));}
+//  public Length multiply(Time that) { return change.multiply(that.div(time));}
   
-  public Acceleration div(Time that) { return MetersPerSecondSquared(toMetersPerSecond() / that.toSeconds());}
-  public Time div(Acceleration that) { return that.time.multiply(this.div(that.change));}
-
-  public Acceleration timeDerived() { return MetersPerSecondSquared(toMetersPerSecond());}
-  public Length timeIntegrated() { return Meters(toMetersPerSecond());}
-  public Time time() { return  Seconds(1);}
-
-  //Due to SecondTimeIntegral
   @Override
-  public Jerk div(TimeSquared that) {return this.div(that.time1.multiply(that.time2));}
-
-  @Override                                   
-  public TimeSquared div(Jerk that) {return this.div(that.timeIntegrated()).multiply(this.time);}
-  
-  
+  public Time time() { return  Seconds(1);}
+  @Override
+  public Acceleration timeDerived() { return MetersPerSecondSquared(toMetersPerSecond());}
+  @Override
+  public Length timeIntegrated() { return Meters(toMetersPerSecond());}
+  @Override
+  public Time div(Acceleration that) {return that.time().multiply(this.timeDerived().div(that));}
+  @Override
+  public TimeSquared div(Jerk that) {return ((this).div((that).timeIntegrated()).multiply(time())); }
   public String oString(VelocityUnit unit) { return to(unit) + " " + unit.symbol;}
   
   @Override
@@ -162,4 +159,5 @@ public class Velocity extends Quantity<Velocity> implements TimeDerivative<Lengt
   public static Velocity mph(double value) {return UsMilesPerHour(value);}
   public static Velocity knots(double value) {return Knots(value);}
 //  implicit object VelocityNumeric extends AbstractQuantityNumeric[dimension](MetersPerSecond)
+  
 }

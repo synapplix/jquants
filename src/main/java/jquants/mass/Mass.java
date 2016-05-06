@@ -47,13 +47,15 @@ public class Mass extends BaseQuantity<Mass> implements TimeIntegral<MassFlowRat
 //  public Force multiply(dimension that) { return Force(this, that);}
 //  public Volume div(Density that) { return CubicMeters(toKilograms() / that.toKilogramsPerCubicMeter());}
 //  public Density div(Volume that) { return Density(this, that);}
-  public Time div(MassFlowRate that) { return that.time.multiply(this.div(that.change));}
-  public MassFlowRate div(Time that) { return MassFlowRate(this, that);}
   public Area div(AreaDensity that) { return SquareMeters(toKilograms() / that.toKilogramsPerSquareMeter());}
 //  public AreaDensity div(dimension that) { return KilogramsPerSquareMeter(toKilograms() / that.toSquareMeters());}
   
-  public MassFlowRate timeDerived() { return KilogramsPerSecond(toKilograms());} //Implement MassFlowRate
+  @Override
   public Time time() {return Seconds(1);}
+  @Override
+  public MassFlowRate timeDerived() { return KilogramsPerSecond(toKilograms());}
+  @Override
+  public Time div(MassFlowRate that) {return that.time().multiply(this.timeDerived().div(that));}
   
   public double toMicrograms() { return to(Micrograms);}
   public double toMilligrams() { return to(Milligrams);}
@@ -132,5 +134,7 @@ public class Mass extends BaseQuantity<Mass> implements TimeIntegral<MassFlowRat
   public static Mass tonnes(double value) {return Tonnes(value);}
   public static Mass pounds(double value) {return Pounds(value);}
   public static Mass ounces(double value) {return Ounces(value);}
+
 }
+
 

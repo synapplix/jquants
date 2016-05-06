@@ -58,8 +58,13 @@ public final class Volume extends Quantity<Volume> implements TimeIntegral<Volum
 //  public Object div(that: Mass) = ??? // returns SpecificVolume (inverse of Density)
 //  public Object div(that: ChemicalAmount) = ??? // return MolarVolume
 
-  public VolumeFlowRate timeDerived() {return CubicMetersPerSecond(toCubicMeters());}
+  @Override
   public Time time(){return Seconds(1);}
+  @Override
+  public VolumeFlowRate timeDerived() {return CubicMetersPerSecond(toCubicMeters());}
+  @Override
+  public Time div(VolumeFlowRate that) {return that.time().multiply(this.timeDerived().div(that));}
+  
   
   public double toCubicMeters() { return to(CubicMeters);}
   public double toLitres() { return to(Litres);}
