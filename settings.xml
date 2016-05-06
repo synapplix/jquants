@@ -1,7 +1,0 @@
-  <servers>
-    <server>
-      <id>ossrh</id>
-      <username>mbraeu</username>
-      <password>jquantsadmin</password>
-    </server>
-  </servers>
