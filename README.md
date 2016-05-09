@@ -264,11 +264,17 @@ The following Squants-packages embody possible extensions:
 
 
 ### Installation ###
-
--
--
-
+ Via Maven:
+ ```xml
+<dependency>
+    <groupId>org.jquants</groupId>
+    <artifactId>jquants</artifactId>
+    <version>1.0</version>
+</dependency>
+ ```
+ For more information check out Jquants on [Maven Central](http://search.maven.org/#artifactdetails|org.jquants|jquants|1.0|jar)
+ 
 ### Contributors ###
-
   • Mathias Bräu (@mbraeu)
+  
   • Florian Pahl (@johnpaul2)
