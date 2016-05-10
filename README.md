@@ -12,7 +12,7 @@ Jquants addresses the insufficient support for Mixed Calculations of Scientific 
 
 The library has emerged within the work on my bachelor thesis conducted at the Technical University Munich (TUM). The thesis has addressed the creation of a solution for "Mixed Calculations of Scientific Units and Sums of Money in Java" cooperating with one of the solution-seeking users, the company [Synapplix](http://www.synapplix.de/). 
 After identifying the translation of [Squants](https://github.com/garyKeorkunian/squants/), as the most viable option, the Java library Jquants has been implemented thereof. 
-For further information on the analysis of currently existing solutions, Jquants' implementation or the performance test I refer to the latest version of my [bachelor thesis](www.LINK.de) and its [presentation](LINK) .
+For further information on the analysis of currently existing solutions, Jquants' implementation or the performance test I refer to the latest version of my [bachelor thesis](https://view.publitas.com/p222-8537/mixed-calculations-of-scientific-units-and-sums-of-money-in-java/) and its [presentation](https://view.publitas.com/p222-8537/mixed-calculations-of-scientific-units-and-sums-of/) .
 
 
 ### Current Version ###
